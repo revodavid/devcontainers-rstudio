@@ -65,10 +65,10 @@ ARG UPGRADE_PACKAGES="false"
 #     && rm -rf /tmp/downloaded_packages
 
 # Install summarytools and load some R package off the bat
-RUN R -e "devtools::install_github('https://github.com/dcomtois/summarytools/tree/0-8-9')"
-RUN R -e "library(ottr)"
-RUN R -e "library(here)"
-RUN R -e "library(languageserver)"
+# RUN R -e "devtools::install_github('https://github.com/dcomtois/summarytools/tree/0-8-9')"
+# RUN R -e "library(ottr)"
+# RUN R -e "library(here)"
+# RUN R -e "library(languageserver)"
 # RUN installGithub.r ucbds-infra/ottr@stable
 
 
