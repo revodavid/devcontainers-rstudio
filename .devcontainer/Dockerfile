@@ -11,58 +11,58 @@ ARG INSTALL_ZSH="true"
 ARG UPGRADE_PACKAGES="false"
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
-# ARG USERNAME=vscode
-# ARG USER_UID=1000
-# ARG USER_GID=$USER_UID
-# COPY library-scripts/*.sh /tmp/library-scripts/
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
-#     && usermod -a -G staff ${USERNAME} \
-#     && apt-get -y install \
-#         python3-pip \
-#         libgit2-dev \
-#         libcurl4-openssl-dev \
-#         libssl-dev \
-#         libxml2-dev \
-#         libxt-dev \
-#     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts \
-#     && python3 -m pip --no-cache-dir install radian \
-#     && pip --disable-pip-version-check --no-cache-dir install pybryt \
-#     && pip --disable-pip-version-check --no-cache-dir install pylint \
-#     && pip --disable-pip-version-check --no-cache-dir install jupyter \
-#     && pip --disable-pip-version-check --no-cache-dir install datascience \
-#     && pip --disable-pip-version-check --no-cache-dir install otter-grader \
-#     && pip --disable-pip-version-check --no-cache-dir install numpy \
-#     && pip --disable-pip-version-check --no-cache-dir install pandas \
-#     && pip --disable-pip-version-check --no-cache-dir install scipy \
-#     && pip --disable-pip-version-check --no-cache-dir install folium>=0.9.1 \
-#     && pip --disable-pip-version-check --no-cache-dir install matplotlib \
-#     && pip --disable-pip-version-check --no-cache-dir install ipywidgets>=7.0.0 \
-#     && pip --disable-pip-version-check --no-cache-dir install bqplot \
-#     && pip --disable-pip-version-check --no-cache-dir install nbinteract>=0.0.12 \
-#     && pip --disable-pip-version-check --no-cache-dir install otter-grader \
-#     && pip --disable-pip-version-check --no-cache-dir install okpy \
-#     && pip --disable-pip-version-check --no-cache-dir install scikit-learn \
-#     && install2.r --error --skipinstalled --ncpus -1 \
-#         languageserver \
-#         httpgd \
-#         statip \
-#         patchwork \
-#         paletteer \
-#         here \
-#         doParallel \
-#         janitor \
-#         vip \
-#         ranger \
-#         palmerpenguins \
-#         skimr \
-#         nnet \
-#         kernlab \
-#         plotly \
-#         factoextra \
-#         cluster \
-#         ottr \
-#     && rm -rf /tmp/downloaded_packages
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+COPY library-scripts/*.sh /tmp/library-scripts/
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
+    && usermod -a -G staff ${USERNAME} \
+    && apt-get -y install \
+        python3-pip \
+        libgit2-dev \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        libxml2-dev \
+        libxt-dev \
+    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts \
+    && python3 -m pip --no-cache-dir install radian \
+    && pip --disable-pip-version-check --no-cache-dir install pybryt \
+    && pip --disable-pip-version-check --no-cache-dir install pylint \
+    && pip --disable-pip-version-check --no-cache-dir install jupyter \
+    && pip --disable-pip-version-check --no-cache-dir install datascience \
+    && pip --disable-pip-version-check --no-cache-dir install otter-grader \
+    && pip --disable-pip-version-check --no-cache-dir install numpy \
+    && pip --disable-pip-version-check --no-cache-dir install pandas \
+    && pip --disable-pip-version-check --no-cache-dir install scipy \
+    && pip --disable-pip-version-check --no-cache-dir install folium>=0.9.1 \
+    && pip --disable-pip-version-check --no-cache-dir install matplotlib \
+    && pip --disable-pip-version-check --no-cache-dir install ipywidgets>=7.0.0 \
+    && pip --disable-pip-version-check --no-cache-dir install bqplot \
+    && pip --disable-pip-version-check --no-cache-dir install nbinteract>=0.0.12 \
+    && pip --disable-pip-version-check --no-cache-dir install otter-grader \
+    && pip --disable-pip-version-check --no-cache-dir install okpy \
+    && pip --disable-pip-version-check --no-cache-dir install scikit-learn \
+    && install2.r --error --skipinstalled --ncpus -1 \
+        languageserver \
+        httpgd \
+        statip \
+        patchwork \
+        paletteer \
+        here \
+        doParallel \
+        janitor \
+        vip \
+        ranger \
+        palmerpenguins \
+        skimr \
+        nnet \
+        kernlab \
+        plotly \
+        factoextra \
+        cluster \
+        ottr \
+    && rm -rf /tmp/downloaded_packages
 
 # Install summarytools and load some R package off the bat
 # RUN R -e "devtools::install_github('https://github.com/dcomtois/summarytools/tree/0-8-9')"
