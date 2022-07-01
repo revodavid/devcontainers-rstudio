@@ -97,3 +97,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && install2.r --error --skipinstalled --ncpus -1 IRkernel \
 #     && python3 -m pip --no-cache-dir install jupyter \
 #     && R --vanilla -s -e 'IRkernel::installspec(user = FALSE)'
+
+# Expose Rstudio port
+EXPOSE 8787
