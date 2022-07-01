@@ -98,5 +98,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && python3 -m pip --no-cache-dir install jupyter \
 #     && R --vanilla -s -e 'IRkernel::installspec(user = FALSE)'
 
-# Expose Rstudio port
+# Expose Rstudio port. Log in with rstudio/rstudio
 EXPOSE 8787
