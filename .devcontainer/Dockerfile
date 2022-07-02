@@ -61,6 +61,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         plotly \
         factoextra \
         cluster \
+        tidymodels \
         ottr \
     && rm -rf /tmp/downloaded_packages
 
