@@ -4,8 +4,8 @@ This is the repository supporting the presentation "Zero-setup R workshops with 
 
 * Presenter: [David Smith](https://www.linkedin.com/in/dmsmith/), Cloud Advocate at Microsoft
 * Presented at: [rstudio::conf, July 28 2022](https://rstudioconf2022.sched.com/event/11iag/zero-setup-r-workshops-with-github-codespaces) 
-* Presentation slides: [PDF](Pending)
-* Presentation video: [TBD](Pending)
+* Presentation slides: [Pending](Pending)
+* Presentation video: [Pending](Pending)
 
 You can recreate the demos in the talk using the steps outlined below.
 
@@ -13,40 +13,37 @@ You can recreate the demos in the talk using the steps outlined below.
 
 If you have access to GitHub CodeSpaces, click the green "Code <>" button at the top right on this repository page, and then select "Create codespace on main". (GitHub CodeSpaces is available with [GitHub Enterprise](https://github.com/enterprise) and [GitHub Education](https://education.github.com/).)
 
-Once the Dev Container has started, browse to the file [intro-regression-R-tidymodels/solution/Challenge-regression.ipynb](intro-regression-R-tidymodels/solution/Challenge-regression.ipynb). This will launch a Jupyter Notebook.
+Now, browse to the file [explore-analyze-data-with-R/solution/challenge-Data_Exploration.ipynb](explore-analyze-data-with-R/solution/challenge-Data_Exploration.ipynb). Work through the Jupyter Notebook.
 
-## Dev Containers on a local machine
+To open RStudio Server, click the Forwarded Ports "Radio" icon at the bottom of the VS Code Online window.
 
-You can use Linux, Mac or Windows (including Windows Subsystem for Linux). Just make sure your machine has the following necessary software installed:
-- [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=academic-55190-ornella), and the [Remote-Containers extension](https://code.visualstudio.com/docs/remote/containers)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- [Git](https://git-scm.com/downloads)
+![Forwarded Ports](img/forwarded_ports.png)
 
-**Note**: you do not need to install R, Python, or anything like that. These will all be provided by the Dev Container. 
+In the Ports tab, click the Open in Browser "World" icon that appears when you hover in the "Local Address" column for the Rstudio row.
 
-Copy the contents of this repository to your machine. An easy way to do this is with the command: 
-```
-git clone https://github.com/revodavid/devcontainers-r
-```
+![Ports](img/ports.png)
 
-Launch Visual Studio Code, and open the directory containing this downloaded repository. An easy way to do this is:
-```
-cd devcontainers-r
-code .
-```
+This will launch RStudio Server in a new window. Log in with the username and password `rstudio/rstudio`. 
 
-Open the VS Code command palette (Control-Shift-P) and run the command **Remote-Containers: Reopen in Container**. (You can also use the pop-up dialog that automatically prompts you do this.) The first time you try this, you will need to wait a few minutes for the container to build. After this first time, startup will be near-instantaneous.
+* NOTE: Sometimes, the RStudio window may fail to open with a timeout error. If this happens, try again, or restart the Codepace.
 
-Now, browse to the file [intro-regression-R-tidymodels/solution/Challenge-regression.ipynb](intro-regression-R-tidymodels/solution/Challenge-regression.ipynb). Work through the Jupyter Notebook.
+In RStudio, use the File menu to open the `/workspaces`, folder and then browse to open the file `devcontainers-rstudio` / `explore-analyze-data-with-R` / `solution` /  `all-systems-check` / `test.Rmd`. Use the "Knit" submenu to "Knit as HTML" and view the rendered "R Notebook" Markdown document.
+
+* Note: You may be prompted to install an updated version of the `markdown` package. Select "Yes".
 
 # Resources and Links
 
+* [GitHub Codespaces](https://github.com/features/codespaces) - Available with GitHub Enterprise and GitHub Education
+* [Microsoft Workshop Library](https://github.com/microsoft/workshop-library) - The source of the workshop "Explore and analyze data with R" included in this presentation
+* [Rocker](https://www.rocker-project.org/) - Containers for R 
 * [Dev Containers](https://containers.dev/) - Overview and specification
 * [Dev Containers in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Remote-Containers extension 
 * [Visual Studio Code](https://code.visualstudio.com/) - Free editor available for Windows, Mac and Linux
-* [GitHub Codespaces](https://github.com/features/codespaces) - Available with GitHub Enterprise and GitHub Education
-* [Microsoft Workshop Library](https://github.com/microsoft/workshop-library) - The source of the workshop "Introduction to regression models by using R and Tidymodels" included in this presentation
-* [Rocker](https://www.rocker-project.org/) - Containers for R 
+* Related talk: [Easy R Tutorials with Dev Containers](https://github.com/revodavid/devcontainers-r). This talk provides information on running Dev Containers in a local environment with Visual Studio Code.
+# Thanks to
+
+* えいつぴ (@[eitsupi](https://twitter.com/eitsupi)): For [helpful info on using RStudio in a Rocker container](https://www.rocker-project.org/images/versioned/rstudio)
+* Eric Nantz ([R-Podcast](https://r-podcast.org/)): For the episode "[Fully containerized R dev environment with Docker, RStudio, and VS-Code](https://www.youtube.com/watch?v=4wRiPG9LM3o)"
 
 # Image Credits
 

@@ -62,6 +62,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         factoextra \
         cluster \
         tidymodels \
+        markdown \ 
         ottr \
     && rm -rf /tmp/downloaded_packages
 
