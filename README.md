@@ -11,7 +11,7 @@ You can recreate the demos in the talk using the steps outlined below.
 
 ## Dev Containers in GitHub Codepaces
 
-If you have access to GitHub CodeSpaces, click the green "Code <>" button at the top right on this repository page, and then select "Create codespace on main". (GitHub CodeSpaces is available with [GitHub Enterprise](https://github.com/enterprise) and [GitHub Education](https://education.github.com/).)
+If you have access to GitHub CodeSpaces, click the green "<> Code" button at the top right on this repository page, and then select "Create codespace on main". (GitHub CodeSpaces is available with [GitHub Enterprise](https://github.com/enterprise) and [GitHub Education](https://education.github.com/).)
 
 Now, browse to the file [explore-analyze-data-with-R/solution/challenge-Data_Exploration.ipynb](explore-analyze-data-with-R/solution/challenge-Data_Exploration.ipynb). Work through the Jupyter Notebook.
 
@@ -45,7 +45,7 @@ In RStudio, use the File menu to open the `/workspaces`, folder and then browse 
 * えいつぴ (@[eitsupi](https://twitter.com/eitsupi)): For [helpful info on using RStudio in a Rocker container](https://www.rocker-project.org/images/versioned/rstudio)
 * Eric Nantz ([R-Podcast](https://r-podcast.org/)): For the episode "[Fully containerized R dev environment with Docker, RStudio, and VS-Code](https://www.youtube.com/watch?v=4wRiPG9LM3o)"
 
-# Image Credits
+## Image Credits
 
 Images used in presentation slides:
 * [File:A frustrated and depressed man holds his head in his hand.jpg - Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_frustrated_and_depressed_man_holds_his_head_in_his_hand.jpg)
