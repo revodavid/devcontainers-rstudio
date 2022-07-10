@@ -49,5 +49,5 @@
 	// "postCreateCommand": "pip3 install -r requirements.txt",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	"remoteUser": "rstudio"
 }
