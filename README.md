@@ -4,8 +4,8 @@ This is the repository supporting the presentation "Zero-setup R workshops with 
 
 * Presenter: [David Smith](https://www.linkedin.com/in/dmsmith/), Cloud Advocate at Microsoft
 * Presented at: [rstudio::conf, July 28 2022](https://rstudioconf2022.sched.com/event/11iag/zero-setup-r-workshops-with-github-codespaces) 
-* Presentation slides: [Pending](Pending)
-* Presentation video: [Pending](Pending)
+* Presentation slides: [PDF](ZeroSetupWorkshopsRStudioConf2022.pdf)
+* Presentation video: [YouTube](https://www.youtube.com/watch?v=2uXLikk30Ew)
 
 You can recreate the demos in the talk using the steps outlined below.
 
