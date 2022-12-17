@@ -44,8 +44,8 @@
 		}
 	},
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo rstudio-server start"
+	// Use 'postAttachCommand' to run commands after the container is started.
+	"postAttachCommand": "sudo rstudio-server start"
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root
 	// "remoteUser": "root"
