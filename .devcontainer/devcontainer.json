@@ -1,7 +1,10 @@
 {
 	"name": "R Data Science Environment",
 	"build": {
-		"dockerfile": "Dockerfile"
+		"dockerfile": "Dockerfile",
+		// Update VARIANT to pick a specific R version: 4, 4.1, 4.0
+		// More info: https://github.com/rocker-org/devcontainer-images/pkgs/container/devcontainer%2Ftidyverse
+		"args": { "VARIANT": "4" }
 	},
 
 	// Install Dev Container Features. More info: https://containers.dev/features
