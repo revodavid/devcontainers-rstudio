@@ -3,31 +3,34 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Update VARIANT to pick a specific R version: 4, 4.1, 4.0
+		// More info: https://github.com/rocker-org/devcontainer-images/pkgs/container/devcontainer%2Ftidyverse
 		"args": { "VARIANT": "4" }
 	},
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"r.rterm.linux": "/usr/local/bin/radian",
-		"r.bracketedPaste": true,
-		"r.plot.useHttpgd": true,
-		"[r]": {
-			"editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+	// Install Dev Container Features. More info: https://containers.dev/features
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
+		// Install JupyterLab and IRkernel.
+		// More info: https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver
+		"ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
+			"version": "none",
+			"installJupyterlab": true
 		}
 	},
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		// Add Jupyter, R and Python vscode extensions
-		"REditorSupport.r",
-		"rdebugger.r-debugger",
-		"ms-toolsai.jupyter",
-		"ms-toolsai.jupyter-renderers",
-		"ms-python.python",
-		"ms-python.vscode-pylance",
-		"vsls-contrib.codetour",
-		"GitHub.copilot"
-	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				// Add Jupyter and Python vscode extensions
+				"ms-toolsai.jupyter",
+				"ms-toolsai.jupyter-renderers",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"vsls-contrib.codetour",
+				"GitHub.copilot"
+			]
+		}
+	},
 
 	// Forward Jupyter and RStudio ports
 	"forwardPorts": [8787, 8888],
@@ -44,10 +47,9 @@
 		}
 	},
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo rstudio-server start",
-	// "postCreateCommand": "pip3 install -r requirements.txt",
+	// Use 'postAttachCommand' to run commands after the container is started.
+	"postAttachCommand": "sudo rstudio-server start"
 
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "rstudio"
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root
+	// "remoteUser": "root"
 }
