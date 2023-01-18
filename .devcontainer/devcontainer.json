@@ -14,26 +14,12 @@
 		// More info: https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver
 		"ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
 			"version": "none",
-			"installJupyterlab": true
+			"installJupyterlab": false
 		}
 	},
 
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				// Add Jupyter and Python vscode extensions
-				"ms-toolsai.jupyter",
-				"ms-toolsai.jupyter-renderers",
-				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"vsls-contrib.codetour",
-				"GitHub.copilot"
-			]
-		}
-	},
-
-	// Forward Jupyter and RStudio ports
-	"forwardPorts": [8787, 8888],
+	// Forward RStudio port
+	"forwardPorts": [8787],
 	"portsAttributes": {
 		"8787": {
 			"label": "Rstudio",
@@ -42,7 +28,7 @@
 		},
 		"8888": {
 			"label": "Jupyter",
-			"requireLocalPort": true,
+			"requireLocalPort": false,
 			"onAutoForward": "ignore"
 		}
 	},
