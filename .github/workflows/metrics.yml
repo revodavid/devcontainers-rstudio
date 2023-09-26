@@ -1,33 +1,30 @@
-# GitHub Actions go to sleep after 60 days of no activity
-# This action runs every month and updates the .stats_timestamp with the current UTC
-# This will generate activity on the repo
-# This activity will keep the git hub repo metrics action alive
+# GitHub Action to post GitHub metrics to an Azure Function App webhook
+# Required secrets
+#   1. A PAT with repo rights:    PAT_REPO_REPORT
+#   2. The webhook endpoint url:  REPORTING_ENDPOINT_URL
+#   3. The webhook endpoint key:  REPORTING_ENDPOINT_KEY
+#   4. Reporting group/team:      REPORTING_GROUP
 
-name: "GitHub repo metrics report keep alive"
+name: "GitHub repo metrics report"
 
 on:
   schedule:
     # Run this once per day, towards the end of the day for keeping the most
     # recent data point most meaningful (hours are interpreted in UTC).
-    # https://cron.help/every-month
-    # Action run midnight UTC 1st of each month
-    - cron: "0 0 1 * *"
+    - cron: "0 23 * * *"
   workflow_dispatch: # Allow for running this manually.
 
 jobs:
-    resources:
-        name: Update the repo metrics timestamp
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-
-            - name: timestamp
-              run: date -Iseconds -u > .stats_timestamp
-
-            - name: Update stats timestamp
-              run: |
-                git add .stats_timestamp
-                git config user.name "github-actions[bot]"
-                git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                git commit -am "Repo Stats Timestamp"
-                git push
+  report_metrics_job:
+    runs-on: ubuntu-latest
+    name: GitHub repo metrics report
+    steps:
+      - name: run github metrics image
+        id: github_metrics
+        uses: gloveboxes/GitHubMetricsAction@v1
+        with:
+          github_repo: ${{ github.repository }}
+          github_personal_access_token: ${{ secrets.REPORTING_PAT }}
+          reporting_endpoint_url: ${{ secrets.REPORTING_ENDPOINT_URL }}
+          reporting_endpoint_key: ${{ secrets.REPORTING_ENDPOINT_KEY }}
+          reporting_group: $${{ secrets.REPORTING_GROUP }}
