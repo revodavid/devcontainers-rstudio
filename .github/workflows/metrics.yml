@@ -1,0 +1,33 @@
+# GitHub Actions go to sleep after 60 days of no activity
+# This action runs every month and updates the .stats_timestamp with the current UTC
+# This will generate activity on the repo
+# This activity will keep the git hub repo metrics action alive
+
+name: "GitHub repo metrics report keep alive"
+
+on:
+  schedule:
+    # Run this once per day, towards the end of the day for keeping the most
+    # recent data point most meaningful (hours are interpreted in UTC).
+    # https://cron.help/every-month
+    # Action run midnight UTC 1st of each month
+    - cron: "0 0 1 * *"
+  workflow_dispatch: # Allow for running this manually.
+
+jobs:
+    resources:
+        name: Update the repo metrics timestamp
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: timestamp
+              run: date -Iseconds -u > .stats_timestamp
+
+            - name: Update stats timestamp
+              run: |
+                git add .stats_timestamp
+                git config user.name "github-actions[bot]"
+                git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                git commit -am "Repo Stats Timestamp"
+                git push
